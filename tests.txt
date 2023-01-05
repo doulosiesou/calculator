@@ -1,0 +1,24 @@
+Tests:
+
+Simple addition:
+single digit: 4+7 = 11
+multiple digits: 25+989 = 1014
+
+Simple subtraction:
+single digits: 7-3 = 4
+multiple digits: 487-348 = 139
+
+Simple multiplication:
+single digits: 4*7 = 28
+multiple digits: 89*456 = 40584
+
+Simple division:
+single digits: 8/2 = 4
+multiple digits: 144/24 = 6
+
+Compound addition and subtraction:
+single digits: 3+5+9-7 = 10
+multiple digits: 45+25-55+205 = 
+
+Compound addition or subtraction and multiplication or division
+80-2*5+20/2 = 80
