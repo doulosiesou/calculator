@@ -6,6 +6,7 @@ let middlePanelText = document.querySelector('.text.input.results');
 let result;
 let reduced;
 let operator;
+let mem = 0;
 
 let reducedResult = [];
 let combinedArray = [];
@@ -28,6 +29,10 @@ const multiply = function(a, b) {
 
 const divide = function(a, b) {
     return Number(a / b);
+}
+
+const squareRoot = function(a) {
+    return Number(a)**0.5
 }
 
 const clear = function() {
@@ -132,11 +137,11 @@ const reduce = function(operatorArray, combinedArray) {
 const operate = function(mpString) {
 
     // Take operations keyed into calculator and turn into a string, then an array
-
+    
     const splitArray = mpString.split(/\+|\-|\*|\/|\=/);
     const slicedArray = splitArray.slice(0, splitArray.length - 1);    
     const combinedArray = slicedArray;
-    
+        
     for (const char of mpString) {
 
         if(char === '+' || char === '-' || char === '*' || char === '/') {
@@ -150,17 +155,101 @@ const operate = function(mpString) {
     };
     
     result = reduce(operatorArray, combinedArray)  
-    return result
+    return Number(result)
 };  
 
-// Main loop for program
+// Main loops for program
 
 const buttonArray = document.querySelectorAll('button');
+
+window.addEventListener("keydown", event => {
+    
+    if (event.key == "1") {
+        mpString += "1"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "2") {
+        mpString += "2"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "3") {
+        mpString += "3"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "4") {
+        mpString += "4"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "5") {
+        mpString += "5"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "6") {
+        mpString += "6"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "7") {
+        mpString += "7"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "8") {
+        mpString += "8"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "9") {
+        mpString += "9"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "0") {
+        mpString += "0"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == ".") {
+        mpString += "."
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "/") {
+        mpString += "/"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "*") {
+        mpString += "*"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "+") {
+        mpString += "+"
+        middlePanelText.textContent = mpString;
+    } else if (event.key == "-") {
+        mpString += "-"
+        middlePanelText.textContent = mpString;
+    }     
+});
 
 for (const button of buttonArray) {
     button.addEventListener("click", function() {
 
         mpString += button.textContent;
+
+        if (button.textContent === 'BS') {
+            mpString = mpString.slice(0, mpString.length-3)
+            upperPanelText.textContent = mpString;
+        }
+
+        if (button.textContent === '+/-') {
+            let split = mpString.split(/\+|\-|\*|\/|\=/);
+            mpString = (-1)*Number(split[0]);    
+            middlePanelText.textContent = mpString;
+        }
+
+        if (button.textContent === 'Sqrt') {
+            let num = Number(mpString.slice(0, -4));
+            let sqr = squareRoot(num);
+            mpString = sqr;
+            middlePanelText.textContent = mpString;
+        }
+
+        if (button.textContent === '%') {
+            let num = Number(mpString.slice(0, -1));
+            let percent = num * 100;
+            mpString = percent;
+            middlePanelText.textContent = mpString;
+            upperPanelText.textContent = mpString + '%'
+        }
+
+        if (button.textContent === '1/x') {
+            let num = Number(mpString.slice(0, -3));
+            let inverse = 1/num;
+            mpString = inverse;
+            middlePanelText.textContent = mpString;
+            upperPanelText.textContent = `1/${mpString} =`;
+        }
 
         if (button.textContent === '=') {
             upperPanelText.textContent = mpString;

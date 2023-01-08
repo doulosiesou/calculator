@@ -43,7 +43,7 @@ body {
     border: groove 3px rgb(50, 50, 50);
     display: grid;
     grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4] 1fr [c5] 1fr [c6];
-    grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr [r5] 1fr [r6] 1fr [r7];
+    grid-template-rows: [r1] 1fr [r2] 1fr [r3] 1fr [r4] 1fr [r5] 1fr [r6];
     column-gap: 4px;
     row-gap: 6px;
 }
@@ -78,8 +78,8 @@ button#equals {
     height: 35px;
     grid-column-start: c1;
     grid-column-end: c3;
-    grid-row-start: r6;
-    grid-row-end: r7;
+    grid-row-start: r5;
+    grid-row-end: r6;
 }
 
 .calc_button.equals {
@@ -87,6 +87,6 @@ button#equals {
     height: 76px;
     grid-column-start: c5;
     grid-column-end: c6;
-    grid-row-start: r5;
-    grid-row-end: r7;
+    grid-row-start: r4;
+    grid-row-end: r6;
 }

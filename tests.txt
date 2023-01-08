@@ -11,6 +11,7 @@ multiple digits: 487-348 = 139
 Simple multiplication:
 single digits: 4*7 = 28
 multiple digits: 89*456 = 40584
+multiple multiplications: 3*4*12*39 = 5616
 
 Simple division:
 single digits: 8/2 = 4
@@ -22,3 +23,36 @@ multiple digits: 45+25-55+205 =
 
 Compound addition or subtraction and multiplication or division
 80-2*5+20/2 = 80
+20+200/3-6*2+7 = 81.666666667
+
+Summary for commit
+Design layout for calculator and assign operations to the equal button
+
+Get users input from calculator as string
+
+Turn that string into 2 arrays
+  An array of numbers for the operations
+  An array of operators
+
+Execute program when user clicks the '=' button.
+
+Create functions for single operations, +, -, * and /
+Create a reduce function that takes in an array of values and muliple operators
+  and reduces to a single value
+Take that single value and display on lower output screen and display
+  original calculation to be solved in top panel
+
+___________
+Commit #2
+
+Add capture for keypad and operators create functions for other btns
+
+Add 1 more set of event listeners to the buttons that can create input on 
+  screen
+
+Create a square root function that calculates square root of number 
+  passed in argument list
+
+Create another condition check in main loop for 1/x button and for % btn
+
+
